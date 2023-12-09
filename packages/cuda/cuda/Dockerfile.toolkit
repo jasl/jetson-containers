@@ -15,7 +15,6 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
     
-RUN wget --no-check-certificate https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/arm64/cuda-ubuntu2004.pin -O /etc/apt/preferences.d/cuda-repository-pin-600
 RUN wget --quiet --show-progress --progress=bar:force:noscroll --no-check-certificate ${CUDA_URL} -O ${CUDA_DEB}
 RUN dpkg -i ${CUDA_DEB}
 RUN cp /var/cuda-tegra-repo-*/cuda-tegra-*-keyring.gpg /usr/share/keyrings/
