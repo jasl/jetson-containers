@@ -10,7 +10,7 @@
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
-ARG PROTOBUF_VERSION=3.19.4
+ARG PROTOBUF_VERSION=25.1
 ARG PROTOBUF_URL=https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOBUF_VERSION}
 ARG PROTOBUF_DIR=protobuf-python-${PROTOBUF_VERSION}
 ARG PROTOC_DIR=protoc-${PROTOBUF_VERSION}-linux-aarch_64
