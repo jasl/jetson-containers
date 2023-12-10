@@ -10,6 +10,7 @@ FROM ${BASE_IMAGE}
 RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets
     
 RUN jupyter lab --version && jupyter lab --generate-config
+RUN python3 -c "from jupyter_server.auth import passwd; passwd('nvidia')"
 
 COPY docker-entrypoint.sh /usr/local/bin
 
