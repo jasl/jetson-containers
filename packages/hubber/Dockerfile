@@ -8,6 +8,8 @@
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
+# Dependencies
+RUN pip3 install --no-cache-dir --verbose install cython wheel
 # https://huggingface.co/docs/hub/models-libraries
 # Unsupported: fastai, ML-Agents, NeMo, paddlenlp, Pyannote, pyctcdecode, pythae, RL-Baselines3-Zoo, Sample Factory, Stable-Baselines3, TensorFlowTTS
 RUN pip3 install --no-cache-dir --verbose \
