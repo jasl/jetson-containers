@@ -12,7 +12,7 @@ FROM ${BASE_IMAGE}
 RUN pip3 install --no-cache-dir --verbose install cython wheel
 # https://huggingface.co/docs/hub/models-libraries
 # Unsupported: fastai, ML-Agents, NeMo, paddlenlp, Pyannote, pyctcdecode, pythae, RL-Baselines3-Zoo, Sample Factory, Stable-Baselines3, TensorFlowTTS
-RUN pip3 install --no-cache-dir --verbose \
+RUN pip3 install --no-cache-dir --verbose --use-pep517 \
         adapters \ 
         'ai2-tango[torch]' \
         asteroid \
