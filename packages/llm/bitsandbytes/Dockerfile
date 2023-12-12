@@ -1,7 +1,7 @@
 #---
 # name: bitsandbytes
 # group: llm
-# requires: '==35.*'
+# requires: '>=35.*'
 # depends: [transformers]
 # test: test.py
 # notes: fork of https://github.com/TimDettmers/bitsandbytes for Jetson

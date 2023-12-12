@@ -92,3 +92,4 @@ tensorboard
 wandb
 llama-cpp-python
 flash-attn
+bitsandbytes
