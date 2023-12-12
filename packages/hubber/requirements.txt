@@ -8,11 +8,14 @@ torch
 torchvision
 xformers
 
+diffusers
+clip
+kornia
+taming-transformers
+invisible-watermark
 ftfy
 regex
 tqdm
-clip @ git+https://github.com/openai/CLIP.git
-invisible-watermark @ git+https://github.com/patrickvonplaten/invisible-watermark.git@remove_onnxruntime_depedency
 
 setuptools
 addict
@@ -34,7 +37,6 @@ GitPython
 httpcore
 inflection
 jsonmerge
-kornia
 lark
 lmdb
 lpips

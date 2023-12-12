@@ -27,3 +27,5 @@ COPY docker-entrypoint.sh /usr/local/bin
 WORKDIR /root
 
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["/bin/bash"]
