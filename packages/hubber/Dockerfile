@@ -1,7 +1,7 @@
 #---
 # name: hubber
 # group: jasl
-# depends: [python, pycuda, protobuf:cpp, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, huggingface_hub]
+# depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, auto_gptq, gptq-for-llama, exllama:v1, exllama:v2, llama_cpp:ggu]
 # requires: '>=36.2.0'
 # notes: A full featured Huggingface runner sandboxie
 #---
@@ -9,29 +9,8 @@ ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
 # Dependencies
-RUN pip3 install --no-cache-dir --verbose install cython wheel
-# https://huggingface.co/docs/hub/models-libraries
-# Unsupported: fastai, ML-Agents, NeMo, paddlenlp, Pyannote, pyctcdecode, pythae，spacy, RL-Baselines3-Zoo, Sample Factory, Stable-Baselines3, TensorFlowTTS
-RUN pip3 install --no-cache-dir --verbose --use-pep517 -i https://pypi.tuna.tsinghua.edu.cn/simple \
-        adapters \ 
-        'ai2-tango[torch]' \
-        asteroid \
-        bertopic \
-        'diffusers[torch]' \
-        'python-doctr[tf]' 'python-doctr[torch]' \
-        espnet \
-        keras \
-        flair \
-        mbrl \
-        miditok \
-        open_clip_torch \
-        peft \
-        sentence-transformers \
-        setfit \
-        span_marker \
-        skops \
-        speechbrain \
-        timm
+ADD requirements.txt /root
+RUN pip3 install --no-cache-dir --verbose -r /root/requirements.txt
 
 # partially initialized module 'cv2' has no attribute 'gapi_wip_gst_GStreamerPipeline'
 RUN cd /opt && ./opencv_install.sh
@@ -40,9 +19,7 @@ RUN cd /opt && ./opencv_install.sh
 ENV DIFFUSERS_CACHE=/data/models/diffusers
 
 RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets
-
 RUN jupyter lab --version && jupyter lab --generate-config
-
 ADD jupyter_server_config.json /root/.jupyter
 
 COPY docker-entrypoint.sh /usr/local/bin
