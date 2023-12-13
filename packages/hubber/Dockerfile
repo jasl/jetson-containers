@@ -16,7 +16,10 @@ RUN pip3 install --no-cache-dir --verbose -r /root/requirements.txt
 RUN cd /opt && ./opencv_install.sh
 
 # set the cache dir for models
+ENV TRANSFORMERS_CACHE=/data/models/huggingface
 ENV DIFFUSERS_CACHE=/data/models/diffusers
+ENV HUGGINGFACE_HUB_CACHE=/data/models/huggingface
+ENV HF_HOME=/data/models/huggingface
 
 RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets
 RUN jupyter lab --version && jupyter lab --generate-config
