@@ -90,5 +90,5 @@ sentencepiece
 tensorboard
 wandb
 llama-cpp-python
-flash-attn
+flash-attn --install-option='--no-build-isolation'
 bitsandbytes
