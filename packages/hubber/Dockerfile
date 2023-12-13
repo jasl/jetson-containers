@@ -1,7 +1,7 @@
 #---
 # name: hubber
 # group: jasl
-# depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, auto_gptq, exllama:v2, llama_cpp]
+# depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, auto_gptq, exllama:v2, llama_cpp:gguf]
 # requires: '>=36.2.0'
 # notes: A full featured Huggingface runner sandboxie
 #---
