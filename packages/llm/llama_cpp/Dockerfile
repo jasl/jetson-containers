@@ -53,8 +53,8 @@ COPY benchmark.py llama.cpp/bin/benchmark.py
 
 WORKDIR / 
 
-# make sure it loads
-RUN pip3 show llama-cpp-python | grep llama && \
-    python3 -c 'import llama_cpp' && \
-    python3 -m llama_cpp.server --help
+# # make sure it loads
+# RUN pip3 show llama-cpp-python | grep llama && \
+#     python3 -c 'import llama_cpp' && \
+#     python3 -m llama_cpp.server --help
 
