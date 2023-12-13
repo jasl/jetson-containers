@@ -71,3 +71,4 @@ optimum
 sentencepiece
 wandb
 flash-attn
+tensorboard
