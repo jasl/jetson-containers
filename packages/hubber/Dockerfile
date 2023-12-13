@@ -21,7 +21,7 @@ ENV DIFFUSERS_CACHE=/data/models/diffusers
 ENV HUGGINGFACE_HUB_CACHE=/data/models/huggingface
 ENV HF_HOME=/data/models/huggingface
 
-RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets
+RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets gradio
 RUN jupyter lab --version && jupyter lab --generate-config
 ADD jupyter_server_config.json /root/.jupyter
 
