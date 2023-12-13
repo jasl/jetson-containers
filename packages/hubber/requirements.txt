@@ -66,7 +66,6 @@ antlr4-python3-runtime
 requests
 accelerate
 opencv-python-headless
-diffusers
 einops
 gradio
 numexpr
