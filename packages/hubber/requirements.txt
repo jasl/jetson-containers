@@ -17,7 +17,6 @@ ftfy
 regex
 tqdm
 
-setuptools
 addict
 aenum
 aiohttp
@@ -33,7 +32,6 @@ filetype
 future
 gdown
 gfpgan
-GitPython
 httpcore
 inflection
 jsonmerge
@@ -82,7 +80,6 @@ timm
 pydantic
 typing-extensions
 peft
-fastapi
 colorama
 datasets
 exllamav2
