@@ -20,7 +20,7 @@ WORKDIR /opt
 # the llama-cpp-python bindings contain llama-cpp as submodule - use that version for sanity
 ADD https://api.github.com/repos/${LLAMA_CPP_PYTHON_REPO}/git/refs/heads/${LLAMA_CPP_PYTHON_BRANCH} /tmp/llama_cpp_python_version.json
 RUN git clone --branch=${LLAMA_CPP_PYTHON_BRANCH} --depth=1 --recursive https://github.com/${LLAMA_CPP_PYTHON_REPO}
-# RUN ln -s llama-cpp-python/vendor/llama.cpp llama.cpp
+RUN ln -s llama-cpp-python/vendor/llama.cpp llama.cpp
 
 # build C++ libraries
 RUN cd llama-cpp-python/vendor/llama.cpp && \
