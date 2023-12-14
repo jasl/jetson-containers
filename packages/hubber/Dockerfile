@@ -1,7 +1,7 @@
 #---
 # name: hubber
 # group: jasl
-# depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, flash_attn, auto_gptq, exllama:v2, llama_cpp:gguf]
+# depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, bitsandbytes, flash_attn, auto_gptq, exllama:v2, llama_cpp:gguf]
 # requires: '>=36.2.0'
 # notes: A full featured Huggingface runner sandboxie
 #---
@@ -20,7 +20,7 @@ ENV DIFFUSERS_CACHE=/data/models/diffusers
 ENV HUGGINGFACE_HUB_CACHE=/data/models/huggingface
 ENV HF_HOME=/data/models/huggingface
 
-RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets gradio
+RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets gradio tensorboard
 RUN jupyter lab --version && jupyter lab --generate-config
 ADD jupyter_server_config.json /root/.jupyter
 
