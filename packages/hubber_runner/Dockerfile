@@ -1,5 +1,5 @@
 #---
-# name: hubber
+# name: hubber_runner
 # group: jasl
 # depends: [python, pycuda, protobuf:cpp, huggingface_hub, numba, numpy, tensorflow2, opencv, pytorch, torchvision, transformers, xformers, bitsandbytes, flash_attn, auto_gptq, exllama:v2, llama_cpp:gguf]
 # requires: '>=36.2.0'
@@ -15,16 +15,16 @@ RUN pip3 install --no-cache-dir --verbose -r /root/requirements.txt
 # partially initialized module 'cv2' has no attribute 'gapi_wip_gst_GStreamerPipeline'
 RUN cd /opt && ./opencv_install.sh
 
-# set the cache dir for models
-ENV DIFFUSERS_CACHE=/data/models/diffusers
-ENV HUGGINGFACE_HUB_CACHE=/data/models/huggingface
-ENV HF_HOME=/data/models/huggingface
-
 RUN pip3 install --no-cache-dir --verbose jupyterlab voila ipywidgets gradio tensorboard
 RUN jupyter lab --version && jupyter lab --generate-config
 ADD jupyter_server_config.json /root/.jupyter
 
 COPY docker-entrypoint.sh /usr/local/bin
+
+# set the cache dir for models
+ENV DIFFUSERS_CACHE=/data/models/diffusers
+ENV HUGGINGFACE_HUB_CACHE=/data/models/huggingface
+ENV HF_HOME=/data/models/huggingface
 
 WORKDIR /root
 
