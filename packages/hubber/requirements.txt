@@ -7,9 +7,12 @@ tensorflow
 torch
 torchvision
 xformers
+flash-attn
 exllamav2
 auto-gptq
 llama-cpp-python
+
+optimum
 
 diffusers
 clip
@@ -67,8 +70,6 @@ pydantic
 typing-extensions
 peft
 datasets
-optimum
 sentencepiece
 wandb
-flash-attn
 tensorboard
