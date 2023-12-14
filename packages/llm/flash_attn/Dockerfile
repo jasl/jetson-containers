@@ -18,7 +18,7 @@ ADD https://api.github.com/repos/${FLASH_ATTN_REPO}/git/refs/heads/${FLASH_ATTN_
 RUN git clone --branch=${FLASH_ATTN_BRANCH} --depth=1 https://github.com/${FLASH_ATTN_REPO} --recursive flash_attn
 
 RUN cd flash_attn && \
-    CUDA_GENCODE='arch=compute_87,code=sm_87' pip3 wheel --wheel-dir=dist --no-deps --verbose . && \
+    MAX_JOBS=8 FORCE_BUILD=True CUDA_GENCODE='arch=compute_87,code=sm_87' pip3 wheel --wheel-dir=dist --no-deps --verbose . && \
     cp dist/flash_attn*.whl /opt
     
 RUN pip3 install --no-cache-dir --verbose --no-build-isolation flash_attn*.whl
