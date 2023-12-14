@@ -10,7 +10,7 @@ FROM ${BASE_IMAGE}
 
 WORKDIR /opt
 
-ARG FLASH_ATTN_REPO=https://github.com/jasl/flash-attention
+ARG FLASH_ATTN_REPO=jasl/flash-attention
 ARG FLASH_ATTN_BRANCH=aarch64
 
 ADD https://api.github.com/repos/${FLASH_ATTN_REPO}/git/refs/heads/${FLASH_ATTN_BRANCH} /tmp/flash_attn_version.json
