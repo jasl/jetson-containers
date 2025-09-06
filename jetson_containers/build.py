@@ -101,7 +101,7 @@ if args.use_proxy:
     proxy_vars = ['http_proxy', 'https_proxy', 'no_proxy', 'HTTP_PROXY', 'HTTPS_PROXY', 'NO_PROXY']
     for var in proxy_vars:
         if var in os.environ:
-            args.build_args[var] = os.environ[var]
+            args.build_args[var] = f"'{os.environ[var]}'"
 
 # add package directories
 if args.package_dirs:
